@@ -4,12 +4,13 @@ import {BrowserModule} from "@angular/platform-browser";
 import {AppComponent} from "./app.component";
 import {allAppComponents, appRoutingProviders, routing} from "./app.routes";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {NguiMapModule} from "@ngui/map";
+// import {NguiMapModule} from "@ngui/map";
 import {NgxPaginationModule} from "ngx-pagination";
 import {JwtModule} from "@auth0/angular-jwt";
 import {FileUploadModule} from "ng2-file-upload";
+import { AgmCoreModule } from '@agm/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-// import { AgmCoreModule } from '@agm/core';
 
 const moduleDeclarations = [AppComponent];
 
@@ -25,20 +26,28 @@ const jwtHelper = JwtModule.forRoot({
 	}});
 
 @NgModule({
-	imports:      [
-		BrowserModule,
-		FormsModule,
-		HttpClientModule,
-		jwtHelper,
-		NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyBMQE2mPIzXsRIbSUWzBUwiJrdrp80Xkqc'}),
-		routing,
-		ReactiveFormsModule,
-		NgxPaginationModule,
-    FileUploadModule,
-	],
-	declarations: [...moduleDeclarations, ...allAppComponents],
-	bootstrap:    [AppComponent],
-	providers:    [...appRoutingProviders]
+  imports: [
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyB3a71eakX1ji_aFPmQpGf5gWD278RRl4o",
+      libraries: ["places"]
+		}),
+		BrowserAnimationsModule,
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    jwtHelper,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyB3a71eakX1ji_aFPmQpGf5gWD278RRl4o',
+      libraries: ['places']
+    }),
+    routing,
+    ReactiveFormsModule,
+    NgxPaginationModule,
+    FileUploadModule
+  ],
+  declarations: [...moduleDeclarations, ...allAppComponents],
+  bootstrap: [AppComponent],
+  providers: [...appRoutingProviders]
 })
 export class AppModule {}
 

@@ -1,5 +1,6 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-@import url('https://fonts.googleapis.com/css?family=Nunito|Open+Sans:700'); /*@import '../node_modules/css-star-rating/css/star-rating.min.css';*/
+@import url('https://fonts.googleapis.com/css?family=Nunito|Open+Sans:700'); 
+/*@import '../node_modules/css-star-rating/css/star-rating.min.css';*/
 
 /** Main Styling File **/
 .header-image {
@@ -53,11 +54,11 @@
 /** Styling for Profile elements **/
 
 
-.card {
-	max-width: 90%;
-	align-items: center;
-	align-content: center;
-}
+/*.card {*/
+	/*max-width: 90%;*/
+	/*align-items: center;*/
+	/*align-content: center;*/
+/*}*/
 
 .profile-image {
 	width: 100px;
